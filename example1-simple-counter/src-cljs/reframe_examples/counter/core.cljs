@@ -1,13 +1,12 @@
 (ns reframe-examples.counter.core
   (:require
-    [reagent.core :as reagent]
+    [clojure.string :as str]
     [re-frame.core :as rf]
-    [clojure.string :as str]))
+    [reagent.core :as reagent]
+    [taoensso.timbre :as timbre]))
 
-;; A detailed walk-through of this source code is provided in the docs:
-;; https://github.com/Day8/re-frame/blob/master/docs/CodeWalkthrough.md
-
-;; -- Domino 1 - Event Dispatch -----------------------------------------------
+;; -----------------------------------------------------------------------------
+;; Events
 
 (defn dispatch-timer-event
   []
@@ -19,8 +18,21 @@
 ;; created in the face of figwheel hot-reloading of this file.
 (defonce do-timer (js/setInterval dispatch-timer-event 1000))
 
+;; -----------------------------------------------------------------------------
+;; Subscriptions
 
-;; -- Domino 2 - Event Handlers -----------------------------------------------
+(rf/reg-sub
+  :time
+  (fn [db _]     ;; db is current app state. 2nd unused param is query vector
+    (:time db))) ;; return a query computation over the application state
+
+(rf/reg-sub
+  :time-color
+  (fn [db _]
+    (:time-color db)))
+
+;; -----------------------------------------------------------------------------
+;; Event Handlers
 
 (rf/reg-event-db              ;; sets up initial application state
   :initialize                 ;; usage:  (dispatch [:initialize])
@@ -35,26 +47,13 @@
     (assoc db :time-color new-color-value)))   ;; compute and return the new application state
 
 
-(rf/reg-event-db                 ;; usage:  (dispatch [:timer a-js-Date])
-  :timer                         ;; every second an event of this kind will be dispatched
-  (fn [db [_ new-time]]          ;; note how the 2nd parameter is destructured to obtain the data value
-    (assoc db :time new-time)))  ;; compute and return the new application state
+(rf/reg-event-db
+  :timer
+  (fn [db [_ new-time]]
+    (assoc db :time new-time)))
 
-
-;; -- Domino 4 - Query  -------------------------------------------------------
-
-(rf/reg-sub
-  :time
-  (fn [db _]     ;; db is current app state. 2nd unused param is query vector
-    (:time db))) ;; return a query computation over the application state
-
-(rf/reg-sub
-  :time-color
-  (fn [db _]
-    (:time-color db)))
-
-
-;; -- Domino 5 - View Functions ----------------------------------------------
+;; -----------------------------------------------------------------------------
+;; Components / Views
 
 (defn clock
   []
@@ -80,12 +79,13 @@
    [clock]
    [color-input]])
 
-;; -- Entry Point -------------------------------------------------------------
+;; -----------------------------------------------------------------------------
+;; Init / re-render
 
-(defn init!
-  []
-  (rf/dispatch-sync [:initialize])     ;; puts a value into application state
-  (reagent/render [ui]              ;; mount the application's ui into '<div id="app" />'
+(defn init! []
+  (rf/dispatch-sync [:initialize])
+  ;; begin rendering
+  (reagent/render [ui]
                   (js/document.getElementById "app")))
 
 

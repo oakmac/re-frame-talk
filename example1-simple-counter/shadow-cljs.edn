@@ -13,4 +13,4 @@
         :modules {:main {:init-fn reframe-examples.counter.core/init!}}
         :devtools {:after-load reframe-examples.counter.core/re-render-everything
                    :http-root "public"
-                   :http-port 7878}}}}
+                   :http-port 7000}}}}
