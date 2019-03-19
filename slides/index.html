@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+  <title>ClojureScript + React.js Talk - Chris Oakman</title>
+  <meta charset="utf-8">
+  <script src="js/slides.js"></script>
+
+  <style type="text/css">
+  /* remove the Google logo */
+  article {
+    background: #fff !important;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .string {
+    color: #008A35;
+  }
+  .small2 {
+    font-size: 18px !important;
+  }
+  .further-reading img {
+    height: 80px;
+    vertical-align: middle;
+  }
+  .cljs-logo {
+    display: inline-block;
+    width: 400px;
+  }
+  .react-logo {
+    display: inline-block;
+    width: 450px;
+  }
+  </style>
+</head>
+<body style="display: none">
+<section class="slides layout-regular template-default">
+
+
+
+
+<article>
+  <h1>ClojureScript + React.js</h1>
+  <p>Chris Oakman<br />
+    <a href="https://twitter.com/oakmac1">@oakmac1</a><br />
+    <a href="http://chrisoakman.com">chrisoakman.com</a></p>
+</article>
+
+
+
+
+
+
+
+<article>
+<h3>Overview</h3>
+<ul>
+  <li>My Background</li>
+  <li>Introduction to ClojureScript</li>
+  <li>Introduction to React.js</li>
+  <li>Why CLJS + React.js?</li>
+  <li>Live demo: Radio component</li>
+  <li>Q&amp;A</li>
+</ul>
+</article>
+
+
+
+
+
+
+
+
+<article>
+<h3>Who is Chris Oakman?</h3>
+<ul>
+  <li>10+ years as a developer</li>
+  <li>7+ languages</li>
+  <li>Built dozens of web apps</li>
+  <li>Author of 12+ open source projects</li>
+  <li>Work at Cisco as a UI developer</li>
+  <li>Teach front-end development at The Iron Yard</li>
+  <li>Started using ClojureScript in late 2013</li>
+</ul>
+<h2>Basically, I write code every day.</h2>
+</article>
+
+
+
+
+
+
+<article style="text-align: center">
+  <img class="cljs-logo" src="img/cljs-white.png">
+  <h2>Introduction to ClojureScript</h2>
+</article>
+
+
+
+
+
+
+
+<article>
+<h3>What is ClojureScript?</h3>
+<ul>
+  <li>Clojure compiled to JavaScript</li>
+  <li>Functional language</li>
+  <li>Dynamical typed</li>
+  <li>Lisp syntax</li>
+</ul>
+<pre class="prettyprint lang-clj">
+(def pi 3.14)
+
+(defn by-id [id]
+  (.getElementById js/document id))
+
+(hiccups/defhtml header []
+  [:header
+    [:h1
+      [:img {:src "img/cljs-ring.svg" :alt "ClojureScript Logo"}]
+      "ClojureScript Cheatsheet"]
+    [:input#searchInput {:type "text" :placeholder "Search"}]])
+</pre>
+</article>
+
+
+
+
+
+
+
+
+<article>
+<h3>Why Clojure?</h3>
+<ul>
+  <li>Simple and practical</li>
+  <li>Stable, flexible syntax (future-proof)</li>
+  <li>Powerful core library</li>
+  <li>Persistent Data Structures as default</li>
+  <li>Awesome community</li>
+</ul>
+<div style="color: #333; margin-top: 100px;">Great video on Clojure:</div>
+<a href="https://www.infoq.com/presentations/Simple-Made-Easy">Simple Made Easy - Rich Hickey</a>
+</article>
+
+
+
+
+
+
+<article>
+<h3>Why ClojureScript?</h3>
+<ul>
+  <li>Language-level state management</li>
+  <li>Build system is part of the language</li>
+  <li>Leverages the best of Google Closure toolchain</li>
+  <li>Flexible syntax: HTML, async, React components</li>
+  <li>Stable!</li>
+</ul>
+<div style="color: #333; margin-top: 120px;">Great video on ClojureScript:</div>
+<a href="https://www.youtube.com/watch?v=gsffg5xxFQI">ClojureScript for Skeptics - Derek Slager</a>
+</article>
+
+
+
+
+
+
+
+
+
+<article style="text-align: center">
+  <img class="react-logo" src="img/react-icon.png">
+  <h2>Introduction to React.js</h2>
+</article>
+
+
+
+
+
+
+
+
+
+
+<article>
+<h3>React.js Basics</h3>
+<ul>
+  <li>Declarative DOM (ie: DOM as a function of data)</li>
+  <li>Library handles DOM transitions</li>
+  <li>Component-based</li>
+  <li>Small, functional interface</li>
+</ul>
+<img src="img/react-vdom.jpg" />
+</article>
+
+
+
+
+
+
+
+
+<article style="text-align: center">
+  <img src="img/cljs-white.png" style="position: absolute; left: 80px; width: 260px;" />
+  <img src="img/heart-eyes.png" style="position: absolute; left: 330px; top: 205px; width: 250px;" />
+  <img src="img/react-icon.png" style="position: absolute; right: 80px; width: 260px;" />
+  <h2>ClojureScript + React.js</h2>
+</article>
+
+
+
+
+
+
+
+
+
+
+<article>
+<h3>ClojureScript + React.js</h3>
+<ul>
+  <li>Flexible syntax (no JSX!)</li>
+  <li>Immutable data by default</li>
+  <li>Components / functions compose naturally</li>
+</ul>
+<img src="img/pds1.png" style="margin-left: 135px;" />
+</article>
+
+
+
+
+
+
+
+
+
+<article style="text-align: center">
+  <img src="img/cljs-radio.png" style="margin-top: 55px;" />
+  <h2>Live Demo: Radio component</h2>
+</article>
+
+
+
+
+
+
+
+
+
+<article>
+  <h1>Thank you!</h1>
+  <p>Chris Oakman<br />
+    <a href="https://twitter.com/oakmac1">@oakmac1</a><br />
+    <a href="http://chrisoakman.com">chrisoakman.com</a>
+  </p>
+  <div style="margin-top: 85px">
+    This presentation is available at:<br />
+    <a href="https://github.com/oakmac/clojurescript-radio">github.com/oakmac/clojurescript-radio</a>
+  </div>
+</article>
+
+
+
+
+
+
+
+</section>
+</body>
+</html>
