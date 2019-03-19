@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>ClojureScript + React.js Talk - Chris Oakman</title>
+  <title>re-frame talk - March 2019, Chris Oakman</title>
   <meta charset="utf-8">
   <script src="js/slides.js"></script>
 
@@ -43,7 +43,7 @@
 
 
 <article>
-  <h1>ClojureScript + React.js</h1>
+  <h1>Building SPAs with re-frame and ClojureScript</h1>
   <p>Chris Oakman<br />
     <a href="https://twitter.com/oakmac1">@oakmac1</a><br />
     <a href="http://chrisoakman.com">chrisoakman.com</a></p>
@@ -54,14 +54,28 @@
 
 
 
+<article>
+<h3>Two Presentation Goals</h3>
+<ul>
+<li>Using ClojureScript with re-frame is an excellent choice for building Single Page Applications.</li>
+<li>Teach the basic concepts behind re-frame</li>
+</ul>
+</article>
+
+
+
+
+
+
 
 <article>
-<h3>Overview</h3>
+<h3>Talk Overview</h3>
 <ul>
   <li>My Background</li>
-  <li>Introduction to ClojureScript</li>
-  <li>Introduction to React.js</li>
-  <li>Why CLJS + React.js?</li>
+  <li>Brief Introduction to ClojureScript and React.js</li>
+  <li>Why use CLJS + React.js?</li>
+  <li>What is re-frame?</li>
+  <li>Why use re-frame?</li>
   <li>Live demo: Radio component</li>
   <li>Q&amp;A</li>
 </ul>
@@ -77,13 +91,12 @@
 <article>
 <h3>Who is Chris Oakman?</h3>
 <ul>
-  <li>10+ years as a developer</li>
+  <li>10+ years as a UI developer</li>
   <li>7+ languages</li>
   <li>Built dozens of web apps</li>
-  <li>Author of 12+ open source projects</li>
-  <li>Work at Cisco as a UI developer</li>
-  <li>Teach front-end development at The Iron Yard</li>
-  <li>Started using ClojureScript in late 2013</li>
+  <li>Author of several open source projects</li>
+  <li>Coding Bootcamp Teacher</li>
+  <li>Started using ClojureScript in 2013</li>
 </ul>
 <h2>Basically, I write code every day.</h2>
 </article>
@@ -155,6 +168,7 @@
 <article>
 <h3>Why ClojureScript?</h3>
 <ul>
+  <li>Same benefits as Clojure</li>
   <li>Language-level state management</li>
   <li>Build system is part of the language</li>
   <li>Leverages the best of Google Closure toolchain</li>
@@ -238,12 +252,33 @@
 
 
 
+<article>
+<h3>State Management in React.js</h3>
+<ul>
+  <li>Components can act like pure functions (<code>props</code>)</li>
+  <li>Components can have local state (<code>state</code>)</li>
+  <li>React.js community converged on managing one source of global state</li>
+    <ul>
+      <li>Redux
+</ul>
+<!-- <img src="img/pds1.png" style="margin-left: 135px;" /> -->
+</article>
 
+
+
+
+
+
+
+
+
+
+<!--
 <article style="text-align: center">
   <img src="img/cljs-radio.png" style="margin-top: 55px;" />
   <h2>Live Demo: Radio component</h2>
 </article>
-
+ -->
 
 
 

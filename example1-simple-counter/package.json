@@ -1,0 +1,12 @@
+{
+  "name": "reframe-examples.counter",
+  "description": "Simple re-frame example of a counter",
+  "version": "1.0.0",
+  "author": "Chris Oakman <chris@oakmac.com> (http://chrisoakman.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "create-react-class": "15.6.3",
+    "react": "16.8.4",
+    "react-dom": "16.8.4"
+  }
+}

@@ -1,0 +1,16 @@
+{:source-paths ["src-cljs"]
+
+ :dependencies [[binaryage/oops "0.6.4"]
+                [com.taoensso/timbre "4.10.0"]
+                [re-frame "0.10.6"]
+                [reagent "0.8.1"]]
+
+  :builds
+    {:app
+       {:target :browser
+        :output-dir "public/js"
+        :asset-path "/js"
+        :modules {:main {:init-fn reframe-examples.counter.core/init!}}
+        :devtools {:after-load reframe-examples.counter.core/re-render-everything
+                   :http-root "public"
+                   :http-port 7878}}}}
