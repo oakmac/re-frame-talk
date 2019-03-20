@@ -1,10 +1,16 @@
-# Outline
+# Talk Notes
 
 ### Purpose of Talk
 - Using ClojureScript with re-frame is an excellent choice for building Single Page Applications
 - Teach the basic concepts behind re-frame
 
 ### About Me
+- 10+ years as a UI developer
+- Have used many programming languages
+- Built dozens of web apps
+- Author of several open source projects
+- Coding Bootcamp Teacher
+- Started using ClojureScript in 2013
 
 ### Brief Introduction to ClojureScript
 - many language choices when targeting JS: Clojure is excellent choice
@@ -16,7 +22,7 @@
 
 ### Brief Introduction to React.js
 - declarative DOM / HTML; uses a virtual DOM to perform updates
-- component-based
+- component-based (think: reusable)
 - Virtual DOM approach is very popular; taking web development by storm last few years
   - Vue.js
   - Elm Architecture
@@ -58,7 +64,7 @@
   - must be a pure function
   - receives the current state of the world (called "coeffects")
   - calculates the "next state" of the world
-  - 99% of the time this is just updating the app-db
+  - 98% of the time this is just updating the app-db
 - 3) Optionally perform some side effect as a result of the new "coeffects" map
 - 4) Subscription are "listening" to app-db state
   - trigger in response to a change
@@ -69,9 +75,9 @@
 ### Benefits of re-frame
 - stable, consistent syntax everywhere (CLJS benefit)
 - single source of state: huge reduction in complexity distribution
-- most of the code you write is either 1) data or 2) pure function
-- side effects get pushed to the "edge" of the application
-- events and subscription de-couple "update logic" from "view logic"
+- most of the code you write is either 1) data or 2) a pure function
+- side effects get pushed to the edge of the application
+- events and subscriptions de-couple "update logic" from "view logic"
   - making a change in one does not necessarily require a corresponding change elsewhere
 - easy to manage lots of events
   - they are just data
@@ -81,18 +87,18 @@
 ### Downsides
 - need to learn re-frame vocabulary / concepts
 - subscriptions can get complex
-- app-db structure can be hard to change
+- app-db structure can be hard to change once baked in
   - usually requires changing both Event Handlers and Subscriptions when app-db structure changes
   - tip: think about the best structure for your data up front
--
+- hard to go back to JavaScript once you learn CLJS 😂
 
 ### Tips / Advice
 - components should always be dead simple
   - do not do any data manipulation in a component
   - Subscriptions should contain that logic
 - namespace your events
-  - [:accounts-page/init]
-  - [:header/select-tab "HOMEPAGE"]
+  - `[:accounts-page/init]`
+  - `[:header/select-tab "HOMEPAGE"]`
   - etc
 - use consistent namespace organization
   - either separate Subscription, Events, Components
@@ -101,7 +107,6 @@
   - I like this convention
 
 ### Demos
+- Excellent example applications in the main repo: https://github.com/Day8/re-frame/tree/master/examples
 - Simple app: counter
-- TODO: add list of things
-- TODO: make list searchable
-- TODO: need to show a side effect / AJAX
+- More complex: classroom

@@ -7,6 +7,11 @@
     [reframe-examples.classroom.data :as data]
     [taoensso.timbre :as timbre]))
 
+;; DEMO TODO:
+;; - "clear search" link
+;; - show count of filtered students
+;; - chain filtered + sorted students
+
 ;; -----------------------------------------------------------------------------
 ;; Events
 
@@ -35,7 +40,7 @@
 (rf/reg-fx
   :fetch-students
   (fn []
-    (timbre/info "Fetching students...")
+    (timbre/info "Fetching students ...")
     (data/fetch-students
       #(rf/dispatch [:fetch-students-success %])
       #(timbre/error "Failed to fetch students :( TODO: show an error message here"))))
@@ -79,8 +84,7 @@
   (let [fetching? @(rf/subscribe [:fetching-students?])]
     [:button.button.is-primary
       {:class [(when fetching? "is-loading")]
-       :on-click #(rf/dispatch [:refresh-students])
-       :style {:margin-left "10px"}}
+       :on-click #(rf/dispatch [:refresh-students])}
       "Refresh"]))
 
 (defn SearchInput
