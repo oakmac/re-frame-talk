@@ -46,9 +46,6 @@
     [:button.button.is-info.is-large
       {:on-click #(rf/dispatch [:increment])}
       "+1"]])
-    ; [:button.button.is-info.is-large
-    ;   {:on-click #(rf/dispatch [:decrement])}
-    ;   "-1"]])
 
 (defn App
   []
