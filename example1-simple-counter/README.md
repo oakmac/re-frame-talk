@@ -5,3 +5,5 @@ Install [shadow-cljs](https://shadow-cljs.github.io/docs/UsersGuide.html#_instal
 ```sh
 shadow-cljs watch app
 ```
+
+Point browser to [http://localhost:7000/](http://localhost:7000/)

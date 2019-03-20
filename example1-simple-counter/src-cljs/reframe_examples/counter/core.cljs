@@ -1,6 +1,5 @@
 (ns reframe-examples.counter.core
   (:require
-    [clojure.string :as str]
     [re-frame.core :as rf]
     [reagent.core :as reagent]
     [taoensso.timbre :as timbre]))
